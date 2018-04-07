@@ -21,3 +21,4 @@ function getGif() {
 function clearBox() {
   document.getElementById("image").src = "";
 }
+
