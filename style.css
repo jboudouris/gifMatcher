@@ -1,93 +1,108 @@
 body {
   background-color: white;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 
 header {
   display: flex;
-  height: 10vh;
-  padding: 2vh;
-  background-color: blue;
+  height: 20vh;
+  padding: 1vh;
+  background-color: black;
 }
 
 .logo {
   text-align: left;
-  width: 20vw;
+  width: 50vw;
 }
 
 #logo {
   padding: 2vh;
-  width: 25%;
-}
-
-.webname h1{
-  text-decoration-color: white;
+  width: 30%;
 }
 
 #chosen {
-  height: 75vh;
-  width: 95vw;
+  height: 50vh;
   padding: 5px;
   margin: 0 auto;
 }
 
 #chosen .row {
   display: flex;
-  justify-content: space-around;
 }
 
 #chosen .top{
-  height: 15vh;
+  width: 500px;
+  height: 20vw;
+  padding: 2px;
+}
+
+#cards{
+	padding: 2px;
+	width: 300px;
+    height: 20vw;
 }
 
 #chosen .bottom{
-  height: 60vh;
+  height: 20vh;
+  width: 300px;
+  padding: 2px;
 }
 
 #chosen .col{
-  width: 30vw;
+  width: 20vw;
 }
 
 #gifs {
-  height: 75vh;
-  width: 95vw;
+  height: 50vh;
   padding: 5px;
   margin: 0 auto;
 }
 
-#gifs .row {
+#gifs .row{
   display: flex;
-}
+ }
 
-#gifs .bottom{
-  height: 60vh;
-}
-  
+ #gifs .bottom{
+ 	height: 20vw;
+ }
+
 #gifs .col2{
-  width: 15vw;
-  height: 15vw;
+  width: 25vw;
+  height: 20vw;
+  padding: 2px;
 }
 
 #gifs .cards1{
-	width: 10vw;
-	height: 10vw;
+	width: 10px;
+	height: 15px;
+	padding: 1.5px;
 }
 
 #gifs .cards2{
-	width: 10vw;
-	height: 10vw;
+	width: 10px;
+	height: 15px;
+	padding: 1.5px;
 }
 #gifs .cards3{
-	width: 10vw;
-	height: 10vw;
+	width: 10px;
+	height: 15px;
+	padding: 1.5px;
 }
 #gifs .cards4{
-	width: 10vw;
-	height: 10vw;
+	width: 10px;
+	height: 15px;
+	padding: 1.5px;
 }
 #gifs .cards5{
-	width: 10vw;
-	height: 10vw;
+	width: 10px;
+	height: 15px;
+	padding: 1.5px;
+}
+
+#gifs img.animated-gif{
+  width: 250px;
+  height: auto;
 }
 
 footer {
@@ -96,5 +111,5 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: blue;
+  background-color: black;
 }
