@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="main.js" type="text/javascript"></script>
   </head>
   <body>
-    <button class="search button" onclick="getGif();">Search for a gif</button>
+    <button class="loadGifs" onclick="getGif();">Search for a gif</button>
+    <button class="clear" onclick="clearBox();">clear</button>
+    <img onclick="clearBox();" src="" id="image">
+    <input type="text" id="mytext">
   </body>
 </html>
