@@ -15,6 +15,10 @@ var player1cards = new Array();
 var player2cards = new Array();
 var player3cards = new Array();
 
+var choosenCards = new Array();
+
+
+
 function initializeGame() {
   for (var j = 0; j < 5; j++) {
     player0cards[j] = getGif()
@@ -33,7 +37,7 @@ function initializeGame() {
 
 function getGif() {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://" + BASE_URL + ENDPOINT + "&api_key=" + PUBLIC_KEY +"&tag=&rating=G", false);
+  xhr.open("GET", "https://" + BASE_URL + ENDPOINT + "&api_key=" + PUBLIC_KEY +"&tag=&rating=PG", false);
   xhr.send();
   var myArr = JSON.parse(xhr.responseText);
   var gifUrl = myArr.data.images.original.url
@@ -45,17 +49,61 @@ function getRandomInt(max) {
 }
 
 function randPhrase() {
-    var 
+    var index = getRandomInt(phrases.length)
+    document.getElementById('currentPhrase').innerHTML = phrases[index];
+    return phrases[index];
 }
 
-function clearBox(id) {
-  getGif(id);
+function makeSelection(id) {
+  if (curPlayer == 0) {
+    choosenCards[0] = document.getElementById(id).src
+  } else if (curPlayer == 1) {
+    choosenCards[1] = document.getElementById(id).src
+  } else if (curPlayer == 2) {
+    choosenCards[2] = document.getElementById(id).src
+  } else if (curPlayer == 3) {
+    choosenCards[3] = document.getElementById(id).src
+  }
+  findSelected(document.getElementById(id).src);
+  var next = 0;
+  if (curPlayer == 0) {
+    next = player1cards;
+  } else if (curPlayer == 1) {
+    next = player2cards;
+  } else if (curPlayer == 2) {
+    next = player3cards;
+  } else if (curPlayer == 3) {
+    next = null;
+  }
+  nextPlayer(next)
 }
 
-function makeSelection(id, destID) {
-  console.log( document.getElementById(id).src);
-  document.getElementById(destID).src = document.getElementById(id).src
-  clearBox(id);
+function findSelected(selectedURL) {
+  if (curPlayer == 0) {
+    for (var i = 0; i < player0cards.length; i++) {
+      if (player0cards[i] == selectedURL) {
+        player0cards[i] = getGif();
+      }
+    }
+  } else if (curPlayer == 1) {
+    for (var i = 0; i < player1cards.length; i++) {
+      if (player1cards[i] == selectedURL) {
+        player1cards[i] = getGif();
+      }
+    }
+  } else if (curPlayer == 2) {
+    for (var i = 0; i < player2cards.length; i++) {
+      if (player2cards[i] == selectedURL) {
+        player2cards[i] = getGif();
+      }
+    }
+  } else if (curPlayer == 3) {
+    for (var i = 0; i < player3cards.length; i++) {
+      if (player3cards[i] == selectedURL) {
+        player3cards[i] = getGif();
+      }
+    }
+  }
 }
 
 function switchCards(nextPlayer) {
@@ -67,5 +115,22 @@ function switchCards(nextPlayer) {
 }
 
 function nextPlayer(playerNumber) {
-  switchCards(playerNumber)
+  if (nextPlayer != null) {
+    switchCards(playerNumber)
+    curPlayer++;
+    curJudge++;
+  } else {
+    promtJudge();
+  }
+}
+
+function promtJudge() {
+  document.getElementById("choice1").src = choosenCards[0]
+  document.getElementById("choice2").src = choosenCards[1]
+  document.getElementById("choice3").src = choosenCards[2]
+  document.getElementById("choice4").src = choosenCards[3]
+}
+
+function cardChoosen(selected) {
+
 }
