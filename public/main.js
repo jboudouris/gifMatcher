@@ -15,9 +15,9 @@ function getGif() {
   var img = new Image();
   console.log(gifUrl);
   img.src = gifUrl;
-  document.getElementById("mytext").value = gifUrl;
+  document.getElementById("image").src = gifUrl;
 }
 
 function clearBox() {
-  document.getElementById("mytext").value = "";
+  document.getElementById("image").src = "";
 }
