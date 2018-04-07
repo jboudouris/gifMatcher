@@ -17,7 +17,10 @@ var player3cards = new Array();
 
 var choosenCards = new Array();
 
-
+var player0score = 0;
+var player1score = 0;
+var player2score = 0;
+var player3score = 0;
 
 function initializeGame() {
   for (var j = 0; j < 5; j++) {
@@ -54,7 +57,10 @@ function randPhrase() {
     return phrases[index];
 }
 
+var clicks = 0;
+
 function makeSelection(id) {
+  clicks++;
   if (curPlayer == 0) {
     choosenCards[0] = document.getElementById(id).src
   } else if (curPlayer == 1) {
@@ -65,6 +71,10 @@ function makeSelection(id) {
     choosenCards[3] = document.getElementById(id).src
   }
   findSelected(document.getElementById(id).src);
+  if (clicks == 3) {
+    clicks = 0;
+    promptJudge()
+  }
   var next = 0;
   if (curPlayer == 0) {
     next = player1cards;
@@ -115,22 +125,32 @@ function switchCards(nextPlayer) {
 }
 
 function nextPlayer(playerNumber) {
-  if (nextPlayer != null) {
-    switchCards(playerNumber)
-    curPlayer++;
-    curJudge++;
-  } else {
-    promtJudge();
-  }
+  switchCards(playerNumber)
+  curPlayer++;
+  curJudge++;
 }
 
-function promtJudge() {
+function promptJudge() {
   document.getElementById("choice1").src = choosenCards[0]
   document.getElementById("choice2").src = choosenCards[1]
   document.getElementById("choice3").src = choosenCards[2]
-  document.getElementById("choice4").src = choosenCards[3]
+  document.getElementById("choice3").src = choosenCards[3]
+}
+
+function resetChoosen() {
+  for (var i = 0; i < choosenCards.length; i++) {
+    choosenCards[i] = "BLANK DEFAULT IMAGE"
+  }
 }
 
 function cardChoosen(selected) {
-
+  if (selected == "choice1") {
+    player1score++;
+  } else if (selected == "choice2") {
+    player2score++;
+  } else if (selected == "choice3") {
+    player3score++;
+  } else if (selected == "choice4") {
+    player4score++;
+  }
 }
