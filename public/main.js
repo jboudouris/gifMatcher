@@ -4,15 +4,20 @@ const ENDPOINT = 'random?';
 const LIMIT = 1;
 const RATING = 'pg';
 
+var images = new Array();
 
 function getGif() {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://" + BASE_URL + ENDPOINT + "&api_key=" + PUBLIC_KEY, false);
+  xhr.open("GET", "https://" + BASE_URL + ENDPOINT + "&api_key=" + PUBLIC_KEY +"&tag=&rating=G", false);
   xhr.send();
   var myArr = JSON.parse(xhr.responseText);
-  console.log(myArr);
   var gifUrl = myArr.data.images.original.url
   var img = new Image();
+  console.log(gifUrl);
   img.src = gifUrl;
-  document.body.appendChild(img);
+  document.getElementById("mytext").value = gifUrl;
+}
+
+function clearBox() {
+  document.getElementById("mytext").value = "";
 }
