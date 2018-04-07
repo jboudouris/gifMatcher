@@ -11,11 +11,7 @@ function getGifs() {
   xhr.send();
   var myArr = JSON.parse(xhr.responseText);
   for (var i = 0; i < myArr.data.length; i++) {
-    var gifUrl = myArr.data[i].embed_url
-
-    $('#btn').on('click', function() {
-        var img = $('<img />', {src : gifUrl + $('#imagename').val() +'.png'});
-        document.write(img);
-    });
+    var gifUrl = myArr.data[i].images.original.url
+    console.log(gifUrl);
   }
 }
