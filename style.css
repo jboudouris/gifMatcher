@@ -1,0 +1,100 @@
+body {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  display: flex;
+  height: 10vh;
+  padding: 2vh;
+  background-color: blue;
+}
+
+.logo {
+  text-align: left;
+  width: 20vw;
+}
+
+#logo {
+  padding: 2vh;
+  width: 25%;
+}
+
+.webname h1{
+  text-decoration-color: white;
+}
+
+#chosen {
+  height: 75vh;
+  width: 95vw;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+#chosen .row {
+  display: flex;
+  justify-content: space-around;
+}
+
+#chosen .top{
+  height: 15vh;
+}
+
+#chosen .bottom{
+  height: 60vh;
+}
+
+#chosen .col{
+  width: 30vw;
+}
+
+#gifs {
+  height: 75vh;
+  width: 95vw;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+#gifs .row {
+  display: flex;
+}
+
+#gifs .bottom{
+  height: 60vh;
+}
+  
+#gifs .col2{
+  width: 15vw;
+  height: 15vw;
+}
+
+#gifs .cards1{
+	width: 10vw;
+	height: 10vw;
+}
+
+#gifs .cards2{
+	width: 10vw;
+	height: 10vw;
+}
+#gifs .cards3{
+	width: 10vw;
+	height: 10vw;
+}
+#gifs .cards4{
+	width: 10vw;
+	height: 10vw;
+}
+#gifs .cards5{
+	width: 10vw;
+	height: 10vw;
+}
+
+footer {
+  height: 10vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: blue;
+}
