@@ -1,23 +1,21 @@
-var GphApiClient = require('giphy-js-sdk-core')
-client = GphApiClient("6GcvQNz3vsFlJgGAcYc7Y4E6RRoylnTH")
+const PUBLIC_KEY = '6GcvQNz3vsFlJgGAcYc7Y4E6RRoylnTH';
+const BASE_URL = 'api.giphy.com/v1/gifs/';
+const ENDPOINT = 'search?';
+const LIMIT = 1;
+const RATING = 'pg';
 
 
-/// Gif Search
-client.search('gifs', {})
-  .then((response) => {
-    response.data.forEach((gifObject) => {
-      console.log(gifObject)
-    })
-  })
-  .catch((err) => {
+function getGifs() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://" + BASE_URL + ENDPOINT + "&api_key=" + PUBLIC_KEY + "&q=" + "funny", false);
+  xhr.send();
+  var myArr = JSON.parse(xhr.responseText);
+  for (var i = 0; i < myArr.data.length; i++) {
+    var gifUrl = myArr.data[i].embed_url
 
-  })
-
-/// Sticker Search
-client.search('stickers', {"q": "cats"})
-  .then((response) => {
-
-  })
-  .catch((err) => {
-
-  })
+    $('#btn').on('click', function() {
+        var img = $('<img />', {src : gifUrl + $('#imagename').val() +'.png'});
+        document.write(img);
+    });
+  }
+}
