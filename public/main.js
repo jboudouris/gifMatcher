@@ -1,3 +1,7 @@
+var GphApiClient = require('giphy-js-sdk-core')
+client = GphApiClient("6GcvQNz3vsFlJgGAcYc7Y4E6RRoylnTH")
+
+
 /// Gif Search
 client.search('gifs', {})
   .then((response) => {
