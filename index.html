@@ -19,7 +19,10 @@
   </header>
 
   <section id="phrase">
-  	<p>#put phrase here</p>
+  	<p id= "currentPhrase" style="font-size: 35px;"></p>
+  	<script>randPhrase()</script>
+  	<p id= "judge"></p>
+  	<script>displayJudge()</script>
   </section>
 
   <section id="chosen">
@@ -36,11 +39,12 @@
       </div>
       <div class="col">
         <div class="row top">
-          <img class="animated-gif" id="cards" src="images/loading.png"/>
+          <img onclick="cardChoosen('choice1');" class="animated-gif" id="choice1" src="images/loading.png"/>
         </div>
         <div class="row bottom">
           <div class="col">
-            <p>Name:</p>
+            <p id="player"></p>
+            <script>displayPlayer()</script>
           </div>
           <div class="col">
             <p>Score:</p>
@@ -49,11 +53,12 @@
       </div>
       <div class="col">
         <div class="row top">
-          <img class="animated-gif" id="cards" src="images/loading.png"/>
+          <img onclick="cardChoosen('choice2');" class="animated-gif" id="choice2" src="images/loading.png"/>
         </div>
         <div class="row bottom">
           <div class="col">
-            <p>Name:</p>
+            <p id="player"></p>
+            <script>displayPlayer()</script>
           </div>
           <div class="col">
             <p>Score:</p>
@@ -62,11 +67,12 @@
       </div>
       <div class="col">
         <div class="row top">
-          <img class="animated-gif" id="cards" src="images/loading.png"/>
+          <img onclick="cardChoosen('choice3');" class="animated-gif" id="choice3" src="images/loading.png"/>
         </div>
         <div class="row bottom">
           <div class="col">
-            <p>Name:</p>
+            <p id="player"></p>
+            <script>displayPlayer()</script>
           </div>
           <div class="col">
             <p>Score:</p>
@@ -79,19 +85,19 @@
   <section id="gifs">
   	<div class="row bottom">
       <div class="col2">
-        <img class="animated-gif" id="cards1" src=""/>
+        <img onclick="makeSelection('cards1');" class="animated-gif" id="cards1" src=""/>
       </div>
       <div class="col2">
-        <img class="animated-gif" id="cards2" src=""/>
+        <img onclick="makeSelection('cards2');" class="animated-gif" id="cards2" src=""/>
       </div>
       <div class="col2">
-        <img class="animated-gif" id="cards3" src=""/>
+        <img onclick="makeSelection('cards3');" class="animated-gif" id="cards3" src=""/>
       </div>
       <div class="col2">
-        <img class="animated-gif" id="cards4" src=""/>
+        <img onclick="makeSelection('cards4');" class="animated-gif" id="cards4" src=""/>
       </div>
       <div class="col2">
-        <img class="animated-gif" id="cards5" src=""/>
+        <img onclick="makeSelection('cards5');" class="animated-gif" id="cards5" src=""/>
       </div>
       <script>initializeGame()</script>
     </div>
