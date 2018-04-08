@@ -83,9 +83,17 @@ function makeSelection(id) {
   } else if (curPlayer == 2) {
     next = player3cards;
   } else if (curPlayer == 3) {
-    next = null;
+    next = player0cards;
   }
-  nextPlayer(next)
+
+  if(curPlayer+1 == curJudge)
+    curPlayer=curPlayer+2;
+  else
+    curPlayer++;
+  if(curPlayer>3)
+    curPlayer=0;
+
+  nextPlayer(next);
 }
 
 function findSelected(selectedURL) {
@@ -125,21 +133,39 @@ function switchCards(nextPlayer) {
 }
 
 function nextPlayer(playerNumber) {
+  /*if(playerNumber==curJudge)
+    curPlayer=curPlayer+2;
+  else
+    curPlayer++;
+  var player="player"+curPlayer+"cards";*/
   switchCards(playerNumber)
-  curPlayer++;
-  curJudge++;
 }
 
 function promptJudge() {
-  document.getElementById("choice1").src = choosenCards[0]
-  document.getElementById("choice2").src = choosenCards[1]
-  document.getElementById("choice3").src = choosenCards[2]
-  document.getElementById("choice3").src = choosenCards[3]
+  var k=1;
+  for(var i=0;i<4;i++){
+    if(i==curJudge){
+      continue;
+    }
+    var ch='choice'+k;
+    console.log(i);
+    console.log(ch);
+    document.getElementById(ch).src = choosenCards[i];
+    k++;
+  }
+  curJudge++;
+  if(curJudge>3)
+    curJudge=1;
 }
 
 function resetChoosen() {
-  for (var i = 0; i < choosenCards.length; i++) {
-    choosenCards[i] = "BLANK DEFAULT IMAGE"
+  var k=1;
+  for (var i = 0; i < choosenCards.length - 1; i++) {
+    choosenCards[i] = "images/loading.png";
+    var ch="choice"+k;
+    console.log(ch);
+    document.getElementById(ch).src = choosenCards[i];
+    k++;
   }
 }
 
@@ -150,7 +176,33 @@ function cardChoosen(selected) {
     player2score++;
   } else if (selected == "choice3") {
     player3score++;
-  } else if (selected == "choice4") {
-    player4score++;
+  }
+    resetChoosen()
+    randPhrase()
+  }
+
+
+
+  function displayPlayer() {
+  if (curPlayer == 0) {
+    document.getElementById("player").innerHTML = "Name: Player 1"
+  } else if (curPlayer == 1) {
+    document.getElementById("player").innerHTML = "Name: Player 2"
+  } else if (curPlayer == 2) {
+    document.getElementById("player").innerHTML = "Name: Player 3"
+  } else if (curPlayer == 3) {
+    document.getElementById("player").innerHTML = "Name: Player 4"
+  }
+}
+
+function displayJudge() {
+  if (curJudge == 0) {
+    document.getElementById("judge").innerHTML = "current judge is player 1"
+  } else if (curJudge == 1) {
+    document.getElementById("judge").innerHTML = "current judge is player 2"
+  } else if (curJudge == 2) {
+    document.getElementById("judge").innerHTML = "current judge is player 3"
+  } else if (curJudge == 3) {
+    document.getElementById("judge").innerHTML = "current judge is player 4"
   }
 }
